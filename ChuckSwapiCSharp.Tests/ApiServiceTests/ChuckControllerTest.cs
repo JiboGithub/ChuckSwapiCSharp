@@ -1,13 +1,22 @@
-using ChuckSwapiCSharp.Tests.BaseTests;
+using ChuckSwapiCSharp.Service.Interface;
+using Moq;
 using Newtonsoft.Json;
 using Xunit;
 
 namespace ChuckSwapiCSharp.Tests.ApiServiceTests;
 
-public sealed class ChuckControllerTest : BaseServiceTest
+public sealed class ChuckControllerTest
 {
+    private Mock<IChuckService> _chuckServiceRepo;
+    private ChuckController __chuckController;
 
-    public ChuckControllerTest() : base() { }
+    public ChuckControllerTest()
+    {
+        _chuckServiceRepo = new Mock<IChuckService>();
+
+        __chuckController = new ChuckController(
+            _chuckServiceRepo.Object);
+    }
 
 
     [Fact]
@@ -20,7 +29,7 @@ public sealed class ChuckControllerTest : BaseServiceTest
             .Returns(JsonConvert.SerializeObject(arr));
 
         //act
-        var _chuckCategoriesResult = __chuckService.GetJokesCategories();
+        var _chuckCategoriesResult = __chuckController.GetJokesCategories();
 
         //assert
         Assert.NotNull(_chuckCategoriesResult);
