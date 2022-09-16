@@ -23,7 +23,7 @@ public sealed class SwapiService : BaseService, ISwapiService
 
         else
         {
-            fullPath = _readConfig?.ChuckBaseUrl + ApiPaths.ChuckCategoriesEndpoint.GetEnumDescription();
+            fullPath = _readConfig?.SwapiBaseUrl + ApiPaths.SwapiPeopleEndpoint.GetEnumDescription();
         }
 
         var response = await _httpClientRequests.GetAsync(_readConfig.SwapiBaseUrl, fullPath);
