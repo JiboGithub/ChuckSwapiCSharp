@@ -7,14 +7,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ChuckSwapiCSharp.csproj", "."]
-RUN dotnet restore "./ChuckSwapiCSharp.csproj"
+COPY ["ChuckSwapiCSharp.API/ChuckSwapiCSharp.API.csproj", "ChuckSwapiCSharp.API/"]
+COPY ["ChuckSwapiCSharp.Service/ChuckSwapiCSharp.Service.csproj", "ChuckSwapiCSharp.Service/"]
+COPY ["ChuckSwapiCSharp.Infrastructure/ChuckSwapiCSharp.Infrastructure.csproj", "ChuckSwapiCSharp.Infrastructure/"]
+COPY ["ChuckSwapiCSharp.Domain/ChuckSwapiCSharp.Domain.csproj", "ChuckSwapiCSharp.Domain/"]
+RUN dotnet restore "ChuckSwapiCSharp.API/ChuckSwapiCSharp.API.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "ChuckSwapiCSharp.csproj" -c Release -o /app/build
+WORKDIR "/src/ChuckSwapiCSharp.API"
+RUN dotnet build "ChuckSwapiCSharp.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ChuckSwapiCSharp.csproj" -c Release -o /app/publish
+RUN dotnet publish "ChuckSwapiCSharp.API.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
