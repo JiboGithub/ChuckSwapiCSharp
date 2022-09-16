@@ -30,8 +30,8 @@ public sealed class SearchService : ISearchService
         //await all api calls
         var tasks = await Task.WhenAll(
             new[] {
-             __chukService.GetJokesCategories(QueryParam),
-             _swapiService.GetStarWarsPeople(QueryParam)
+             __chukService.SearchJokesCategories(QueryParam),
+             _swapiService.SearchStarWarsPeople(QueryParam)
             });
 
         int count = 0;
@@ -52,5 +52,8 @@ public sealed class SearchService : ISearchService
 
         return result;
     }
+
+
+
 
 }

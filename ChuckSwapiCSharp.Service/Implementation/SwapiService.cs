@@ -30,4 +30,14 @@ public sealed class SwapiService : BaseService, ISwapiService
         return response;
     }
 
+     
+    public async Task<string?> SearchStarWarsPeople(string? query = "")
+    {
+
+        string fullPath = _readConfig?.SwapiBaseUrl + ApiPaths.SearchPeople.GetEnumDescription() + query;
+
+        var response = await _httpClientRequests.GetAsync(_readConfig.SwapiBaseUrl, fullPath);
+        return response;
+    }
+
 }

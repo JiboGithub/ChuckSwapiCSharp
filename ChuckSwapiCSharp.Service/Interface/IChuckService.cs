@@ -2,5 +2,6 @@
 
 public interface IChuckService
 {
-    Task<string?> GetJokesCategories(string? query = "");
+    Task<string?> SearchJokesCategories(string? query = "");
+    Task<string?> GetRandomJokes(string? query = "");
 }
