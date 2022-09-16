@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  chuckswapicsharp.api:
+    image: ${DOCKER_REGISTRY-}chuckswapicsharpapi
+    build:
+      context: .
+      dockerfile: ChuckSwapiCSharp.API/Dockerfile

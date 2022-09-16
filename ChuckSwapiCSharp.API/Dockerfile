@@ -22,4 +22,4 @@ RUN dotnet publish "ChuckSwapiCSharp.API.csproj" -c Release -o /app/publish /p:U
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet ChuckSwapiCSharp.dll
+ENTRYPOINT ["dotnet", "ChuckSwapiCSharp.API.dll"]
