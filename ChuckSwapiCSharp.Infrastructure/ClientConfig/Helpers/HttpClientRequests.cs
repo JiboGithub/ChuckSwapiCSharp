@@ -37,7 +37,7 @@ public class HttpClientRequests : IHttpClientRequests
 
         try
         {
-            var jsonResponse = await httpClient.GetAsync(BaseUrl + EndPoint);
+            var jsonResponse = await httpClient.GetAsync(EndPoint);
             return await GetResponse(jsonResponse);
         }
         catch (Exception)

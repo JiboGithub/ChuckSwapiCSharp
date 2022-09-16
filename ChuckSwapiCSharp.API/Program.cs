@@ -1,6 +1,7 @@
 using ChuckSwapiCSharp.API.Extensions;
 using ChuckSwapiCSharp.Infrastructure;
 using ChuckSwapiCSharp.Service;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
-app.UseCors();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();

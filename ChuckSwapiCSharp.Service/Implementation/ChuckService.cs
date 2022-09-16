@@ -13,14 +13,20 @@ public sealed class ChuckService : BaseService, IChuckService
 
     public async Task<string?> GetJokesCategories(string? query = "")
     {
-        string extraPath = string.Empty;
+        string extraPath = string.Empty, fullPath = string.Empty;
 
         if (!string.IsNullOrWhiteSpace(query))
         {
-            extraPath += $"/search?query={query}";
+            extraPath += $"/jokes/search?query={query}";
+            fullPath = _readConfig?.ChuckBaseUrl + extraPath;
         }
 
-        var response = await _httpClientRequests.GetAsync(_readConfig?.ChuckBaseUrl, ApiPaths.ChuckCategoriesEndpoint.GetEnumDescription() + extraPath);
+        else
+        {
+            fullPath = _readConfig?.ChuckBaseUrl + ApiPaths.ChuckCategoriesEndpoint.GetEnumDescription();
+        }
+
+        var response = await _httpClientRequests.GetAsync(_readConfig?.ChuckBaseUrl, fullPath);
         return response;
     }
 }

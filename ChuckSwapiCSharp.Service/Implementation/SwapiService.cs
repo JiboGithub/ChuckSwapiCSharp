@@ -13,14 +13,20 @@ public sealed class SwapiService : BaseService, ISwapiService
 
     public async Task<string?> GetStarWarsPeople(string? query = "")
     {
-        string extraPath = string.Empty;
+        string extraPath = string.Empty, fullPath = string.Empty;
 
         if (!string.IsNullOrWhiteSpace(query))
         {
-            extraPath += $"/?search={query}";
+            extraPath += $"/api/people/{query}";
+            fullPath = _readConfig.SwapiBaseUrl + extraPath;
         }
 
-        var response = await _httpClientRequests.GetAsync(_readConfig.SwapiBaseUrl, ApiPaths.SwapiPeopleEndpoint.GetEnumDescription() + extraPath);
+        else
+        {
+            fullPath = _readConfig?.ChuckBaseUrl + ApiPaths.ChuckCategoriesEndpoint.GetEnumDescription();
+        }
+
+        var response = await _httpClientRequests.GetAsync(_readConfig.SwapiBaseUrl, fullPath);
         return response;
     }
 
