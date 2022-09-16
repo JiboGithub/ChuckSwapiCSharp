@@ -23,7 +23,7 @@ public sealed class SearchService : ISearchService
         _readConfig = readConfig.Value;
     }
 
-    public async Task<IList<ApiResponse>> Search(string? QueryParam)
+    public async Task<IList<ApiResponse>> Search(string? QueryParam = "")
     {
         IList<ApiResponse> result = new List<ApiResponse>();
 

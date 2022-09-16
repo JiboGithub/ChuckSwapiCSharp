@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuckSwapiCSharp.Service", 
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{82CE9EBD-A904-4122-8C8C-AA6F0F2BB69F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuckSwapiCSharp.Tests", "ChuckSwapiCSharp.Tests\ChuckSwapiCSharp.Tests.csproj", "{06C30A72-2800-45E3-8879-D0FB409EECB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{82CE9EBD-A904-4122-8C8C-AA6F0F2BB69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82CE9EBD-A904-4122-8C8C-AA6F0F2BB69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82CE9EBD-A904-4122-8C8C-AA6F0F2BB69F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C30A72-2800-45E3-8879-D0FB409EECB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C30A72-2800-45E3-8879-D0FB409EECB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C30A72-2800-45E3-8879-D0FB409EECB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C30A72-2800-45E3-8879-D0FB409EECB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

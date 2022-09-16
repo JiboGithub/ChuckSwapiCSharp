@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace ChuckSwapiCSharp.Service.Implementation;
 
-internal class BaseService
+public class BaseService
 {
     protected readonly IHttpClientRequests _httpClientRequests;
     protected readonly ReadConfig? _readConfig;

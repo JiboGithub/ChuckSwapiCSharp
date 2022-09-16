@@ -13,10 +13,10 @@ public class ChuckController : ControllerBase
         _chuckService = chuckService;
     }
 
-    [HttpGet, Route("chuck")]
+    [HttpGet, Route("chuck/categories")]
     [SwaggerOperation(Summary = "Get Chuck Norris Joke Categories", Description = "API to Get Chuck Norris Joke Categories")]
-    [SwaggerResponse(200, "Data returned", typeof(IActionResult))]
-    [SwaggerResponse(404, "No records", typeof(IActionResult))]
+    [SwaggerResponse(200, "Data returned", typeof(OkResult))]
+    [SwaggerResponse(404, "No records", typeof(NotFoundResult))]
     public async Task<IActionResult> GetJokesCategories()
     {
         var getJokesResponse = await _chuckService.GetJokesCategories();

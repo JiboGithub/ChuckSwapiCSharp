@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace ChuckSwapiCSharp.Service.Implementation;
 
-internal sealed class ChuckService : BaseService, IChuckService
+public sealed class ChuckService : BaseService, IChuckService
 {
     public ChuckService(IHttpClientRequests httpClientRequests, IOptions<ReadConfig?> readConfig) : base(httpClientRequests, readConfig) { }
 
